@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+        }
+
+        nav {
+            position: fixed;
+            width: 20vw;
+            background-color: white;
+        }
+
+        nav div {
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+            padding: 15px 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        nav div:first-child {
+            border-top: 1px solid black;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: black;
+        }
+
+        .nav-link:hover {
+            color: red;
+        }
+
+        main {
+            position: absolute;
+            width: 68vw;
+            margin-left: 21vw;
+        }
+
+        .section {
+            border: 1px solid black;
+            padding: 0 20px;
+            margin-bottom: 10px;
+        }
+
+        .logo-img {
+            height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div><a href="#1" class="nav-link">HTML</a></div>
+        <div><a href="#2" class="nav-link">CSS</a></div>
+        <div><a href="#3" class="nav-link">PYTHON</a></div>
+        <div><a href="#4" class="nav-link">DJANGO</a></div>
+        <div><a href="#5" class="nav-link">TEAM PROJECT</a></div>
+    </nav>
+    <main>
+        <div id="1" class="section">
+            <h1 class="title">1. HTML</h1>
+            <p class="desc">1주차에는 HTML을 배웁니다.</p>
+            <img src="img/html.jpg" class="logo-img">
+        </div>
+        <div id="2" class="section">
+            <h1 class="title">2. CSS</h1>
+            <p class="desc">HTML과 더불어 CSS도 1주차에 배웁니다.</p>
+            <img src="img/css.jpg" class="logo-img">
+        </div>
+        <div id="3" class="section">
+            <h1 class="title">3. PYTHON</h1>
+            <p class="desc">2주차에는 PYTHON을 배웁니다.</p>
+            <img src="img/python.jpg" class="logo-img">
+        </div>
+        <div id="4" class="section">
+            <h1 class="title">4. DJANGO</h1>
+            <p class="desc">3주차부터 5주차까지 3주에 걸쳐 DJANGO를 배웁니다.</p>
+            <img src="img/django.jpg" class="logo-img">
+        </div>
+        <div id="5" class="section">
+            <h1 class="title">5. TEAM PROJECT</h1>
+            <p class="desc">6주차부터 8주차까지 3주에 걸쳐 팀 프로젝트를 진행합니다.</p>
+            <img src="img/team.jpg" class="logo-img">
+        </div>
+    </main>
+</body>
+
+</html>
