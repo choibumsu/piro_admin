@@ -8,24 +8,27 @@
     <title>Document</title>
     <style>
         nav {
-            display: flex;
             position: fixed;
             top: 0;
             left: 0;
-            background-color: white;
             width: 100vw;
             height: 60px;
+            background-color: white;
             z-index: 999;
         }
 
         nav div {
             width: 20vw;
+            float: left;
+            box-sizing: border-box;
             border-right: 1px solid black;
             border-bottom: 1px solid black;
-            padding: 15px 5px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        nav div:last-child {
+            border-right: 0;
         }
 
         .nav-link {
