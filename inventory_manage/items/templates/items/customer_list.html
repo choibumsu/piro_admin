@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+Pirogramming - 거래처 관리
+{% endblock %}
+
+{% block content %}
+<div class="container main-container">
+    <div class="row">
+        {% for customer in customers %}
+        <div class="col-4">
+            <div class="card item-card">
+                <div class="card-body">
+                    <h5 class="card-title"><a
+                            href="{% url 'items:customer_detail' customer.id %}">{{ customer.name }}</a></h5>
+                    <p class="card-text">{{ customer.tel }}</p>
+                    <p class="card-text">{{ customer.address }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

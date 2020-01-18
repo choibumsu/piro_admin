@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+Pirogramming - 상품 상세
+{% endblock %}
+
+{% block content %}
+<div class="container main-container">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <div class="card item-card">
+                <div class="thumbnail-wrapper">
+                    <div class="thumbnail">
+                        <div class="centered">
+                            {% if item.photo %}
+                            <img src="{{ item.photo.url }}">
+                            {% else %}
+                            <img src="{% static 'img/logo.jpg' %}">
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <h5 class="card-title"><a href="{% url 'items:item_detail' item.id %}">{{ item.name }}</a></h5>
+                    <p class="card-text">가격 : {{ item.price }}</p>
+                    <p class="card-text">남은 수량 : {{ item.amount }}</p>
+                    <p class="card-text">제품 설명 : {{ item.description }}</p>
+                    <p class="card-text"><a href="{% url 'items:customer_detail' item.customer.id %}">거래처 :
+                            {{ item.customer }}</a></p>
+                </div>
+            </div>
+            <a href="{% url 'items:item_update' item.id %}"><button>수정</button></a>
+            <form action="{% url 'items:item_delete' item.id %}" method="POST">
+                {% csrf_token %}
+                <button>삭제</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
