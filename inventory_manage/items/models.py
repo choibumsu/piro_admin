@@ -20,7 +20,7 @@ class Item(models.Model):
     price = models.IntegerField(verbose_name="가격")
     amount = models.IntegerField(verbose_name="남은 수량")
     customer = models.ForeignKey(
-        'Customer', on_delete=models.CASCADE, verbose_name="거래처")
+        'Customer', related_name='items', on_delete=models.CASCADE, verbose_name="거래처")
 
     def __str__(self):
         return self.name

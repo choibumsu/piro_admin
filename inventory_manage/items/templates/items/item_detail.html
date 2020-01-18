@@ -23,7 +23,7 @@ Pirogramming - 상품 상세
                 </div>
 
                 <div class="card-body">
-                    <h5 class="card-title"><a href="{% url 'items:item_detail' item.id %}">{{ item.name }}</a></h5>
+                    <h5 class="card-title">{{ item.name }}</h5>
                     <p class="card-text">가격 : {{ item.price }}</p>
                     <p class="card-text">남은 수량 : {{ item.amount }}</p>
                     <p class="card-text">제품 설명 : {{ item.description }}</p>
@@ -36,6 +36,7 @@ Pirogramming - 상품 상세
                 {% csrf_token %}
                 <button>삭제</button>
             </form>
+            <a href="{% url 'items:main' %}"><button>목록</button></a>
         </div>
     </div>
 </div>

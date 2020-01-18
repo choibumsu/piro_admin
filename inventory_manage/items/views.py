@@ -53,13 +53,16 @@ def item_increase(request, pk):
 def item_update(request, pk):
     item = get_object_or_404(Item, pk=pk)
     if request.method == "GET":
+        form = ItemForm(instance=item)
+
         return render(request, "items/item_update.html", {'form': form})
     elif request.method == "POST":
-        input_data = request.POST
-        input_photo = request.FILES['photo']
+        if request.FILES.get('photo', ''):
+            input_photo = request.FILES.get('photo', '')
+            item.photo = input_photo
 
+        input_data = request.POST
         item.name = input_data['name']
-        item.photo = input_photo
         item.description = input_data['description']
         item.price = input_data['price']
         item.amount = input_data['amount']
@@ -98,8 +101,10 @@ def customer_list(request):
 
 def customer_detail(request, pk):
     customer = get_object_or_404(Customer, pk=pk)
+    items = customer.items.all()
     context = {
-        'customer': customer
+        'customer': customer,
+        'items': items
     }
 
     return render(request, "items/customer_detail.html", context)

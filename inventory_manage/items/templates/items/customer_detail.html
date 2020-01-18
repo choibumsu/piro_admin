@@ -11,10 +11,14 @@ Pirogramming - 거래처 상세
         <div class="col-8">
             <div class="card item-card">
                 <div class="card-body">
-                    <h5 class="card-title"><a
-                            href="{% url 'items:customer_detail' customer.id %}">{{ customer.name }}</a></h5>
+                    <h5 class="card-title">{{ customer.name }}</h5>
                     <p class="card-text">{{ customer.tel }}</p>
                     <p class="card-text">{{ customer.address }}</p>
+                    <hr />
+                    <p class="card-text">거래 상품 목록</p>
+                    {% for item in items %}
+                    <p class="card-text"><a href="{% url 'items:item_detail' item.id %}">{{ item.name }}</a></p>
+                    {% endfor %}
                 </div>
             </div>
             <a href="{% url 'items:customer_update' customer.id %}"><button>수정</button></a>
@@ -22,6 +26,7 @@ Pirogramming - 거래처 상세
                 {% csrf_token %}
                 <button>삭제</button>
             </form>
+            <a href="{% url 'items:customer_list' %}"><button>목록</button></a>
         </div>
     </div>
 </div>
